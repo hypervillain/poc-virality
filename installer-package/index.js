@@ -43,7 +43,7 @@ function installDeps(pkg) {
 
 const gitPath = 'hypervillain/poc-virality'
 const gitReadme = `https://github.com/${gitPath}`
-// const  gitPath = 'prismicio/vue-essential-slices'
+
 async function main() {
   const zipFile = await download(`https://codeload.github.com/${gitPath}/zip/master`);
   const zip = new AdmZip(zipFile);

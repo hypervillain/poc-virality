@@ -1,0 +1,20 @@
+{
+  "name": "installer-package-poc-virality",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "init": "./install.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "fs-extra": "^10.0.0",
+    "node-fetch": "^2.6.5",
+    "tmp": "^0.2.1"
+  }
+}
