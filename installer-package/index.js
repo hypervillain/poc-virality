@@ -41,6 +41,28 @@ function installDeps(pkg) {
   }
 }
 
+function readJson(p) {
+  if (fs.existsSync(p)) {
+    try {
+      return JSON.parse(fs.readFileSync(p, 'utf-8'))
+    } catch(e) {
+      return null
+    }
+  }
+  return null
+}
+
+/* This is just an example implementation*/
+function addLibrary(lib) {
+  const p = path.join(process.cwd(), 'sm.json')
+  const manifest = readJson(p) || {}
+  const updatedManifest = {
+    ...manifest,
+    libraries: [...manifest.libraries, lib]
+  }
+  fs.writeFileSync(p, JSON.stringify(updatedManifest, null, 2))
+}
+
 const gitPath = 'hypervillain/poc-virality'
 const gitReadme = `https://github.com/${gitPath}`
 
@@ -57,7 +79,10 @@ async function main() {
 
   installDeps(pkg)
 
-  console.log(`${pkg.name} installed! Check ${gitReadme} for full install process!`)
+  const libName = `~/${pkg.name}/slices`
+  addLibrary(libName)
+
+  console.log(`Folder ${pkg.name} installed! Check ${gitReadme} for additional steps!`)
 }
 
 main()
