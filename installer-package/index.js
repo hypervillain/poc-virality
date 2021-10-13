@@ -58,7 +58,7 @@ function addLibrary(lib) {
   const manifest = readJson(p) || {}
   const updatedManifest = {
     ...manifest,
-    libraries: [...manifest.libraries, lib]
+    libraries: [...(manifest.libraries || []), lib]
   }
   fs.writeFileSync(p, JSON.stringify(updatedManifest, null, 2))
 }

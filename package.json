@@ -1,6 +1,6 @@
 {
   "name": "poc-virality",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "source": "src/slices/index.js",
   "main": "build/index.js",
